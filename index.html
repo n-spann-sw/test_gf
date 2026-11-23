@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Recovery</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0078d7;
+            color: white;
+            font-family: "Segoe UI", sans-serif;
+            text-align: center;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .heart {
+            font-size: 70px;
+            margin-bottom: 20px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            border: 2px solid white;
+            background: white;
+            color: #0078d7;
+            font-size: 18px;
+            font-family: inherit;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: transparent;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        #reveal {
+            display: none;
+            margin-top: 30px;
+            animation: fadeIn 1s;
+        }
+
+        .small {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 40px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="heart">♥</div>
+
+        <h1>System Recovery Complete</h1>
+
+        <p>
+            The issue has been successfully diagnosed.
+        </p>
+
+        <p>
+            Apparently, my relationship status
+            was missing a very important update.
+        </p>
+
+        <button onclick="revealMessage()">
+            Install Update
+        </button>
+
+        <div id="reveal">
+            <h1>Update Successful!</h1>
+
+            <p>
+                New relationship status:
+            </p>
+
+            <h1>Girlfriend</h1>
+
+            <p>
+                So... will you officially be my girlfriend?
+            </p>
+
+            <p>
+                I promise this update comes with
+                unlimited cuddles and affection.
+            </p>
+
+            <button onclick="sayYes()">
+                Yes, obviously!
+            </button>
+
+            <p id="finalMessage"></p>
+        </div>
+
+        <div class="small">
+            Error code: TOO_MUCH_LOVE
+        </div>
+
+    </div>
+
+    <script>
+        function revealMessage() {
+            document.getElementById("reveal").style.display = "block";
+
+            document.querySelector("button").style.display = "none";
+        }
+
+        function sayYes() {
+            document.getElementById("finalMessage").innerHTML =
+                "Achievement unlocked: Girlfriend<br><br>" +
+                "I love you, Player 2.";
+
+            document.querySelector("#reveal button").style.display = "none";
+        }
+    </script>
+</body>
+</html>
